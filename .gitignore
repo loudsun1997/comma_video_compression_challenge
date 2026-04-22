@@ -230,3 +230,8 @@ archive/
 inflated/
 report.txt
 
+# Learned upscaler (local checkpoints)
+learned_upscaler/micro_upscaler.pt
+learned_upscaler/checkpoints/
+learned_upscaler/temp_lr_train.mkv
+
