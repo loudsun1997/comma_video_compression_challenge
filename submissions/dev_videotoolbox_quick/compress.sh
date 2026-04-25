@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# Fast iteration on Apple Silicon: hardware HEVC via VideoToolbox.
+# Trade-off: often larger files than libx265 at similar visual quality — use for
+# quick pipeline tests, then switch back to libx265 for score-focused encodes.
+# On this ffmpeg build, lower -q:v ≈ smaller files; raise -q:v for quality.
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -42,12 +46,11 @@ head -n "$(wc -l < "$VIDEO_NAMES_FILE")" "$VIDEO_NAMES_FILE" | xargs -P"$JOBS" -
   ffmpeg -nostdin -y -hide_banner -loglevel warning \
     -r 20 -fflags +genpts -i "$IN" \
     -vf "scale=trunc(iw*0.45/2)*2:trunc(ih*0.45/2)*2:flags=lanczos" \
-    -c:v libx265 -preset ultrafast -crf 30 \
-    -g 1 -bf 0 -x265-params "keyint=1:min-keyint=1:scenecut=0:frame-threads=4:log-level=warning" \
+    -c:v hevc_videotoolbox -q:v 50 \
+    -g 1 -bf 0 \
     -r 20 "$OUT"
 ' _ {}
 
-# zip archive
 cd "$ARCHIVE_DIR"
 zip -r "${HERE}/archive.zip" .
 echo "Compressed to ${HERE}/archive.zip"

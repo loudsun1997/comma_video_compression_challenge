@@ -61,7 +61,16 @@ def main():
 
   if rank == 0:
     compressed_size = (args.submission_dir / 'archive.zip').stat().st_size
-    uncompressed_size = sum(file.stat().st_size for file in args.uncompressed_dir.rglob('*') if file.is_file())
+    base = args.uncompressed_dir.resolve()
+    uncompressed_size = 0
+    for name in test_video_names:
+      if not name:
+        continue
+      path = (base / name).resolve()
+      path.relative_to(base)
+      if not path.is_file():
+        raise FileNotFoundError(f"video in {args.video_names_file} not found under {args.uncompressed_dir}: {name}")
+      uncompressed_size += path.stat().st_size
     rate = compressed_size / uncompressed_size
 
   ds_comp = TensorVideoDataset(test_video_names, data_dir=args.submission_dir / 'inflated', batch_size=args.batch_size, device=device, num_threads=args.num_threads, seed=args.seed, prefetch_queue_depth=args.prefetch_queue_depth)

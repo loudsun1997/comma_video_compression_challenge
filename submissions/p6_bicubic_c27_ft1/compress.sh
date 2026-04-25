@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# Phase 6c: bicubic + CRF 27 + x265 frame-threads=1 (deterministic / slice edge theory).
+#
+# Parallelism: libx265 uses frame-threads=1 per encode (one slice / WPP-friendly path).
+# To use the machine on multi-file batches, we parallelize over *files* via xargs -P,
+# defaulting to all logical CPUs (macOS: sysctl; Linux: nproc). Override with --jobs N.
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -7,7 +12,7 @@ PD="$(cd "${HERE}/../.." && pwd)"
 IN_DIR="${PD}/videos"
 VIDEO_NAMES_FILE="${PD}/public_test_video_names.txt"
 ARCHIVE_DIR="${HERE}/archive"
-JOBS="1"
+JOBS="$(sysctl -n hw.logicalcpu 2>/dev/null || nproc 2>/dev/null || echo 4)"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -20,6 +25,7 @@ while [[ $# -gt 0 ]]; do
     *)
       echo "Unknown arg: $1" >&2
       echo "Usage: $0 [--in-dir <dir>] [--jobs <n>] [--video-names-file <file>]" >&2
+      echo "  Default --jobs: logical CPU count (parallel encodes; each x265 stays single-threaded)." >&2
       exit 2 ;;
   esac
 done
@@ -28,6 +34,8 @@ rm -rf "$ARCHIVE_DIR"
 mkdir -p "$ARCHIVE_DIR"
 
 export IN_DIR ARCHIVE_DIR
+
+echo "Parallel file jobs (xargs -P): ${JOBS}"
 
 head -n "$(wc -l < "$VIDEO_NAMES_FILE")" "$VIDEO_NAMES_FILE" | xargs -P"$JOBS" -I{} bash -c '
   rel="$1"
@@ -41,13 +49,12 @@ head -n "$(wc -l < "$VIDEO_NAMES_FILE")" "$VIDEO_NAMES_FILE" | xargs -P"$JOBS" -
 
   ffmpeg -nostdin -y -hide_banner -loglevel warning \
     -r 20 -fflags +genpts -i "$IN" \
-    -vf "scale=trunc(iw*0.45/2)*2:trunc(ih*0.45/2)*2:flags=lanczos" \
-    -c:v libx265 -preset ultrafast -crf 30 \
-    -g 1 -bf 0 -x265-params "keyint=1:min-keyint=1:scenecut=0:frame-threads=4:log-level=warning" \
+    -vf "scale=trunc(iw*0.40/2)*2:trunc(ih*0.40/2)*2:flags=bicubic" \
+    -c:v libx265 -preset slower -crf 27 \
+    -g 60 -bf 0 -x265-params "keyint=60:min-keyint=1:scenecut=40:no-sao=1:frame-threads=1:log-level=warning" \
     -r 20 "$OUT"
 ' _ {}
 
-# zip archive
 cd "$ARCHIVE_DIR"
 zip -r "${HERE}/archive.zip" .
 echo "Compressed to ${HERE}/archive.zip"

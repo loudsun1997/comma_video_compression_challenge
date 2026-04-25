@@ -1,0 +1,211 @@
+
+########## p2_g1_medium_c30_gop60 ##########
+Error while loading conda entry point: conda-libmamba-solver (dlopen(/opt/miniconda3/lib/python3.12/site-packages/libmambapy/bindings.cpython-312-darwin.so, 0x0002): Library not loaded: @rpath/libarchive.20.dylib
+  Referenced from: <496442DC-0EDE-3705-A2B5-401A4FC0D733> /opt/miniconda3/lib/libmamba.2.0.0.dylib
+  Reason: tried: '/opt/miniconda3/lib/libarchive.20.dylib' (no such file), '/opt/miniconda3/lib/python3.12/site-packages/libmambapy/../../../libarchive.20.dylib' (no such file), '/opt/miniconda3/lib/python3.12/site-packages/libmambapy/../../../libarchive.20.dylib' (no such file), '/opt/miniconda3/bin/../lib/libarchive.20.dylib' (no such file), '/opt/miniconda3/bin/../lib/libarchive.20.dylib' (no such file), '/usr/local/lib/libarchive.20.dylib' (no such file), '/usr/lib/libarchive.20.dylib' (no such file, not in dyld cache))
+→ /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/videos/0.mkv  →  /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/submissions/p2_g1_medium_c30_gop60/archive/0.mkv
+x265 [warning]: Source height < 720p; disabling lookahead-slices
+  adding: 0.mkv (deflated 1%)
+Compressed to /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/submissions/p2_g1_medium_c30_gop60/archive.zip
+Archive:  ./submissions/p2_g1_medium_c30_gop60/archive.zip
+  inflating: ./submissions/p2_g1_medium_c30_gop60/archive/0.mkv  
+Decoding + resizing 0.mkv ... saved 1200 frames
+All videos inflated to ./submissions/p2_g1_medium_c30_gop60/inflated
+=== Evaluation config ===
+  batch_size: 16
+  device: mps
+  num_threads: 2
+  prefetch_queue_depth: 4
+  report: submissions/p2_g1_medium_c30_gop60/report.txt
+  seed: 1234
+  submission_dir: submissions/p2_g1_medium_c30_gop60
+  uncompressed_dir: /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/videos
+  video_names_file: /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/public_test_video_names.txt
+AVVideoDataset on rank 0 with 1 files.
+TensorVideoDataset on rank 0 with 1 files.
+0it [00:00, ?it/s]/Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/frame_utils.py:232: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:219.)
+  frames = torch.from_numpy(mm)  # (N, H, W, C), shares mmap memory
+1it [00:02,  2.75s/it]2it [00:04,  2.25s/it]3it [00:06,  2.04s/it]4it [00:08,  1.95s/it]5it [00:10,  1.90s/it]6it [00:11,  1.87s/it]7it [00:13,  1.86s/it]8it [00:15,  1.90s/it]9it [00:17,  1.92s/it]10it [00:19,  1.91s/it]11it [00:21,  1.90s/it]12it [00:23,  1.88s/it]13it [00:25,  1.86s/it]14it [00:26,  1.84s/it]15it [00:28,  1.83s/it]16it [00:30,  1.82s/it]17it [00:32,  1.81s/it]18it [00:34,  1.81s/it]19it [00:35,  1.81s/it]20it [00:37,  1.81s/it]21it [00:39,  1.81s/it]22it [00:41,  1.81s/it]23it [00:43,  1.81s/it]24it [00:44,  1.81s/it]25it [00:46,  1.84s/it]26it [00:48,  1.84s/it]27it [00:50,  1.88s/it]28it [00:52,  1.91s/it]29it [00:54,  1.88s/it]30it [00:56,  1.86s/it]31it [00:58,  1.85s/it]32it [00:59,  1.84s/it]33it [01:01,  1.83s/it]34it [01:03,  1.82s/it]35it [01:05,  1.83s/it]36it [01:07,  1.82s/it]37it [01:09,  1.83s/it]38it [01:10,  1.71s/it]38it [01:10,  1.85s/it]
+=== Evaluation results over 600 samples ===
+  Average PoseNet Distortion: 0.59414792
+  Average SegNet Distortion: 0.00907703
+  Submission file size: 633,079 bytes
+  Original uncompressed size: 37,545,489 bytes
+  Compression Rate: 0.01686165
+  Final score: 100*segnet_dist + √(10*posenet_dist) + 25*rate = 3.77
+Evaluation complete. Report saved to ./submissions/p2_g1_medium_c30_gop60/report.txt
+
+########## p2_p1_slower_c30_gop1 ##########
+Error while loading conda entry point: conda-libmamba-solver (dlopen(/opt/miniconda3/lib/python3.12/site-packages/libmambapy/bindings.cpython-312-darwin.so, 0x0002): Library not loaded: @rpath/libarchive.20.dylib
+  Referenced from: <496442DC-0EDE-3705-A2B5-401A4FC0D733> /opt/miniconda3/lib/libmamba.2.0.0.dylib
+  Reason: tried: '/opt/miniconda3/lib/libarchive.20.dylib' (no such file), '/opt/miniconda3/lib/python3.12/site-packages/libmambapy/../../../libarchive.20.dylib' (no such file), '/opt/miniconda3/lib/python3.12/site-packages/libmambapy/../../../libarchive.20.dylib' (no such file), '/opt/miniconda3/bin/../lib/libarchive.20.dylib' (no such file), '/opt/miniconda3/bin/../lib/libarchive.20.dylib' (no such file), '/usr/local/lib/libarchive.20.dylib' (no such file), '/usr/lib/libarchive.20.dylib' (no such file, not in dyld cache))
+→ /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/videos/0.mkv  →  /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/submissions/p2_p1_slower_c30_gop1/archive/0.mkv
+  adding: 0.mkv (deflated 57%)
+Compressed to /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/submissions/p2_p1_slower_c30_gop1/archive.zip
+Archive:  ./submissions/p2_p1_slower_c30_gop1/archive.zip
+  inflating: ./submissions/p2_p1_slower_c30_gop1/archive/0.mkv  
+Decoding + resizing 0.mkv ... saved 1200 frames
+All videos inflated to ./submissions/p2_p1_slower_c30_gop1/inflated
+=== Evaluation config ===
+  batch_size: 16
+  device: mps
+  num_threads: 2
+  prefetch_queue_depth: 4
+  report: submissions/p2_p1_slower_c30_gop1/report.txt
+  seed: 1234
+  submission_dir: submissions/p2_p1_slower_c30_gop1
+  uncompressed_dir: /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/videos
+  video_names_file: /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/public_test_video_names.txt
+AVVideoDataset on rank 0 with 1 files.
+TensorVideoDataset on rank 0 with 1 files.
+0it [00:00, ?it/s]/Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/frame_utils.py:232: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:219.)
+  frames = torch.from_numpy(mm)  # (N, H, W, C), shares mmap memory
+1it [00:02,  2.40s/it]2it [00:04,  2.03s/it]3it [00:06,  1.95s/it]4it [00:07,  1.89s/it]5it [00:09,  1.86s/it]6it [00:11,  1.84s/it]7it [00:13,  1.84s/it]8it [00:15,  1.83s/it]9it [00:16,  1.82s/it]10it [00:18,  1.82s/it]11it [00:20,  1.82s/it]12it [00:22,  1.81s/it]13it [00:24,  1.82s/it]14it [00:26,  1.85s/it]15it [00:27,  1.84s/it]16it [00:29,  1.83s/it]17it [00:31,  1.82s/it]18it [00:33,  1.81s/it]19it [00:35,  1.84s/it]20it [00:38,  2.15s/it]21it [00:39,  2.08s/it]22it [00:41,  2.01s/it]23it [00:43,  1.96s/it]24it [00:45,  1.93s/it]25it [00:47,  1.91s/it]26it [00:49,  1.90s/it]27it [00:51,  1.88s/it]28it [00:52,  1.87s/it]29it [00:54,  1.86s/it]30it [00:56,  1.86s/it]31it [00:58,  1.84s/it]32it [01:00,  1.83s/it]33it [01:02,  1.82s/it]34it [01:03,  1.82s/it]35it [01:05,  1.85s/it]36it [01:07,  1.85s/it]37it [01:09,  1.87s/it]38it [01:11,  1.78s/it]38it [01:11,  1.87s/it]
+=== Evaluation results over 600 samples ===
+  Average PoseNet Distortion: 0.29208612
+  Average SegNet Distortion: 0.00835058
+  Submission file size: 2,167,012 bytes
+  Original uncompressed size: 37,545,489 bytes
+  Compression Rate: 0.05771697
+  Final score: 100*segnet_dist + √(10*posenet_dist) + 25*rate = 3.99
+Evaluation complete. Report saved to ./submissions/p2_p1_slower_c30_gop1/report.txt
+
+########## p2_s1_slower_c31_gop1 ##########
+Error while loading conda entry point: conda-libmamba-solver (dlopen(/opt/miniconda3/lib/python3.12/site-packages/libmambapy/bindings.cpython-312-darwin.so, 0x0002): Library not loaded: @rpath/libarchive.20.dylib
+  Referenced from: <496442DC-0EDE-3705-A2B5-401A4FC0D733> /opt/miniconda3/lib/libmamba.2.0.0.dylib
+  Reason: tried: '/opt/miniconda3/lib/libarchive.20.dylib' (no such file), '/opt/miniconda3/lib/python3.12/site-packages/libmambapy/../../../libarchive.20.dylib' (no such file), '/opt/miniconda3/lib/python3.12/site-packages/libmambapy/../../../libarchive.20.dylib' (no such file), '/opt/miniconda3/bin/../lib/libarchive.20.dylib' (no such file), '/opt/miniconda3/bin/../lib/libarchive.20.dylib' (no such file), '/usr/local/lib/libarchive.20.dylib' (no such file), '/usr/lib/libarchive.20.dylib' (no such file, not in dyld cache))
+→ /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/videos/0.mkv  →  /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/submissions/p2_s1_slower_c31_gop1/archive/0.mkv
+  adding: 0.mkv (deflated 60%)
+Compressed to /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/submissions/p2_s1_slower_c31_gop1/archive.zip
+Archive:  ./submissions/p2_s1_slower_c31_gop1/archive.zip
+  inflating: ./submissions/p2_s1_slower_c31_gop1/archive/0.mkv  
+Decoding + resizing 0.mkv ... saved 1200 frames
+All videos inflated to ./submissions/p2_s1_slower_c31_gop1/inflated
+=== Evaluation config ===
+  batch_size: 16
+  device: mps
+  num_threads: 2
+  prefetch_queue_depth: 4
+  report: submissions/p2_s1_slower_c31_gop1/report.txt
+  seed: 1234
+  submission_dir: submissions/p2_s1_slower_c31_gop1
+  uncompressed_dir: /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/videos
+  video_names_file: /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/public_test_video_names.txt
+AVVideoDataset on rank 0 with 1 files.
+TensorVideoDataset on rank 0 with 1 files.
+0it [00:00, ?it/s]/Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/frame_utils.py:232: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:219.)
+  frames = torch.from_numpy(mm)  # (N, H, W, C), shares mmap memory
+1it [00:02,  2.37s/it]2it [00:04,  2.03s/it]3it [00:05,  1.93s/it]4it [00:07,  1.88s/it]5it [00:09,  1.85s/it]6it [00:11,  1.84s/it]7it [00:13,  1.84s/it]8it [00:15,  1.85s/it]9it [00:17,  1.87s/it]10it [00:18,  1.86s/it]11it [00:20,  1.85s/it]12it [00:22,  1.84s/it]13it [00:24,  1.85s/it]14it [00:26,  1.84s/it]15it [00:28,  1.85s/it]16it [00:29,  1.85s/it]17it [00:31,  1.86s/it]18it [00:33,  1.89s/it]19it [00:35,  1.91s/it]20it [00:37,  1.90s/it]21it [00:39,  1.89s/it]22it [00:41,  1.86s/it]23it [00:43,  1.88s/it]24it [00:45,  1.87s/it]25it [00:46,  1.89s/it]26it [00:48,  1.89s/it]27it [00:50,  1.88s/it]28it [00:52,  1.87s/it]29it [00:54,  1.88s/it]30it [00:56,  1.97s/it]31it [00:58,  1.99s/it]32it [01:00,  1.98s/it]33it [01:02,  1.97s/it]34it [01:04,  1.93s/it]35it [01:06,  1.91s/it]36it [01:08,  1.90s/it]37it [01:10,  1.89s/it]38it [01:11,  1.76s/it]38it [01:11,  1.88s/it]
+=== Evaluation results over 600 samples ===
+  Average PoseNet Distortion: 0.38528937
+  Average SegNet Distortion: 0.00916011
+  Submission file size: 1,902,731 bytes
+  Original uncompressed size: 37,545,489 bytes
+  Compression Rate: 0.05067802
+  Final score: 100*segnet_dist + √(10*posenet_dist) + 25*rate = 4.15
+Evaluation complete. Report saved to ./submissions/p2_s1_slower_c31_gop1/report.txt
+
+########## p2_s2_slower_c32_gop1 ##########
+Error while loading conda entry point: conda-libmamba-solver (dlopen(/opt/miniconda3/lib/python3.12/site-packages/libmambapy/bindings.cpython-312-darwin.so, 0x0002): Library not loaded: @rpath/libarchive.20.dylib
+  Referenced from: <496442DC-0EDE-3705-A2B5-401A4FC0D733> /opt/miniconda3/lib/libmamba.2.0.0.dylib
+  Reason: tried: '/opt/miniconda3/lib/libarchive.20.dylib' (no such file), '/opt/miniconda3/lib/python3.12/site-packages/libmambapy/../../../libarchive.20.dylib' (no such file), '/opt/miniconda3/lib/python3.12/site-packages/libmambapy/../../../libarchive.20.dylib' (no such file), '/opt/miniconda3/bin/../lib/libarchive.20.dylib' (no such file), '/opt/miniconda3/bin/../lib/libarchive.20.dylib' (no such file), '/usr/local/lib/libarchive.20.dylib' (no such file), '/usr/lib/libarchive.20.dylib' (no such file, not in dyld cache))
+→ /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/videos/0.mkv  →  /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/submissions/p2_s2_slower_c32_gop1/archive/0.mkv
+  adding: 0.mkv (deflated 63%)
+Compressed to /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/submissions/p2_s2_slower_c32_gop1/archive.zip
+Archive:  ./submissions/p2_s2_slower_c32_gop1/archive.zip
+  inflating: ./submissions/p2_s2_slower_c32_gop1/archive/0.mkv  
+Decoding + resizing 0.mkv ... saved 1200 frames
+All videos inflated to ./submissions/p2_s2_slower_c32_gop1/inflated
+=== Evaluation config ===
+  batch_size: 16
+  device: mps
+  num_threads: 2
+  prefetch_queue_depth: 4
+  report: submissions/p2_s2_slower_c32_gop1/report.txt
+  seed: 1234
+  submission_dir: submissions/p2_s2_slower_c32_gop1
+  uncompressed_dir: /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/videos
+  video_names_file: /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/public_test_video_names.txt
+AVVideoDataset on rank 0 with 1 files.
+TensorVideoDataset on rank 0 with 1 files.
+0it [00:00, ?it/s]/Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/frame_utils.py:232: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:219.)
+  frames = torch.from_numpy(mm)  # (N, H, W, C), shares mmap memory
+1it [00:02,  2.41s/it]2it [00:04,  2.06s/it]3it [00:06,  1.97s/it]4it [00:07,  1.92s/it]5it [00:09,  1.88s/it]6it [00:11,  1.86s/it]7it [00:13,  1.85s/it]8it [00:15,  1.84s/it]9it [00:17,  1.92s/it]10it [00:19,  2.05s/it]11it [00:21,  2.00s/it]12it [00:23,  1.95s/it]13it [00:25,  1.91s/it]14it [00:26,  1.88s/it]15it [00:28,  1.86s/it]16it [00:30,  1.85s/it]17it [00:32,  1.84s/it]18it [00:34,  1.84s/it]19it [00:36,  1.86s/it]20it [00:38,  1.85s/it]21it [00:40,  1.89s/it]22it [00:41,  1.90s/it]23it [00:43,  1.88s/it]24it [00:45,  1.89s/it]25it [00:47,  1.90s/it]26it [00:49,  1.89s/it]27it [00:51,  1.89s/it]28it [00:53,  1.88s/it]29it [00:55,  1.86s/it]30it [00:56,  1.84s/it]31it [00:58,  1.83s/it]32it [01:00,  1.81s/it]33it [01:02,  1.79s/it]34it [01:03,  1.78s/it]35it [01:05,  1.77s/it]36it [01:07,  1.77s/it]37it [01:09,  1.84s/it]38it [01:10,  1.72s/it]38it [01:10,  1.86s/it]
+=== Evaluation results over 600 samples ===
+  Average PoseNet Distortion: 0.51866680
+  Average SegNet Distortion: 0.01009667
+  Submission file size: 1,680,515 bytes
+  Original uncompressed size: 37,545,489 bytes
+  Compression Rate: 0.04475944
+  Final score: 100*segnet_dist + √(10*posenet_dist) + 25*rate = 4.41
+Evaluation complete. Report saved to ./submissions/p2_s2_slower_c32_gop1/report.txt
+
+########## p2_s3_slower_c33_gop1 ##########
+Error while loading conda entry point: conda-libmamba-solver (dlopen(/opt/miniconda3/lib/python3.12/site-packages/libmambapy/bindings.cpython-312-darwin.so, 0x0002): Library not loaded: @rpath/libarchive.20.dylib
+  Referenced from: <496442DC-0EDE-3705-A2B5-401A4FC0D733> /opt/miniconda3/lib/libmamba.2.0.0.dylib
+  Reason: tried: '/opt/miniconda3/lib/libarchive.20.dylib' (no such file), '/opt/miniconda3/lib/python3.12/site-packages/libmambapy/../../../libarchive.20.dylib' (no such file), '/opt/miniconda3/lib/python3.12/site-packages/libmambapy/../../../libarchive.20.dylib' (no such file), '/opt/miniconda3/bin/../lib/libarchive.20.dylib' (no such file), '/opt/miniconda3/bin/../lib/libarchive.20.dylib' (no such file), '/usr/local/lib/libarchive.20.dylib' (no such file), '/usr/lib/libarchive.20.dylib' (no such file, not in dyld cache))
+→ /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/videos/0.mkv  →  /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/submissions/p2_s3_slower_c33_gop1/archive/0.mkv
+  adding: 0.mkv (deflated 66%)
+Compressed to /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/submissions/p2_s3_slower_c33_gop1/archive.zip
+Archive:  ./submissions/p2_s3_slower_c33_gop1/archive.zip
+  inflating: ./submissions/p2_s3_slower_c33_gop1/archive/0.mkv  
+Decoding + resizing 0.mkv ... saved 1200 frames
+All videos inflated to ./submissions/p2_s3_slower_c33_gop1/inflated
+=== Evaluation config ===
+  batch_size: 16
+  device: mps
+  num_threads: 2
+  prefetch_queue_depth: 4
+  report: submissions/p2_s3_slower_c33_gop1/report.txt
+  seed: 1234
+  submission_dir: submissions/p2_s3_slower_c33_gop1
+  uncompressed_dir: /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/videos
+  video_names_file: /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/public_test_video_names.txt
+AVVideoDataset on rank 0 with 1 files.
+TensorVideoDataset on rank 0 with 1 files.
+0it [00:00, ?it/s]/Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/frame_utils.py:232: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:219.)
+  frames = torch.from_numpy(mm)  # (N, H, W, C), shares mmap memory
+1it [00:02,  2.59s/it]2it [00:04,  2.15s/it]3it [00:06,  2.02s/it]4it [00:08,  1.97s/it]5it [00:10,  1.93s/it]6it [00:12,  1.95s/it]7it [00:13,  1.93s/it]8it [00:15,  1.97s/it]9it [00:17,  1.97s/it]10it [00:19,  1.94s/it]11it [00:21,  1.91s/it]12it [00:23,  1.90s/it]13it [00:25,  1.90s/it]14it [00:27,  1.88s/it]15it [00:29,  1.87s/it]16it [00:31,  1.90s/it]17it [00:33,  1.94s/it]18it [00:35,  1.93s/it]19it [00:36,  1.90s/it]20it [00:38,  1.95s/it]21it [00:40,  1.95s/it]22it [00:42,  1.90s/it]23it [00:44,  1.88s/it]24it [00:46,  1.89s/it]25it [00:48,  1.87s/it]26it [00:50,  1.86s/it]27it [00:51,  1.85s/it]28it [00:53,  1.86s/it]29it [00:55,  1.87s/it]30it [00:57,  1.86s/it]31it [00:59,  1.88s/it]32it [01:01,  1.89s/it]33it [01:03,  1.89s/it]34it [01:05,  1.89s/it]35it [01:07,  1.89s/it]36it [01:08,  1.89s/it]37it [01:10,  1.90s/it]38it [01:12,  1.78s/it]38it [01:12,  1.90s/it]
+=== Evaluation results over 600 samples ===
+  Average PoseNet Distortion: 0.68033212
+  Average SegNet Distortion: 0.01111245
+  Submission file size: 1,496,104 bytes
+  Original uncompressed size: 37,545,489 bytes
+  Compression Rate: 0.03984777
+  Final score: 100*segnet_dist + √(10*posenet_dist) + 25*rate = 4.72
+Evaluation complete. Report saved to ./submissions/p2_s3_slower_c33_gop1/report.txt
+
+########## p2_d1_slower_c27_scale40 ##########
+Error while loading conda entry point: conda-libmamba-solver (dlopen(/opt/miniconda3/lib/python3.12/site-packages/libmambapy/bindings.cpython-312-darwin.so, 0x0002): Library not loaded: @rpath/libarchive.20.dylib
+  Referenced from: <496442DC-0EDE-3705-A2B5-401A4FC0D733> /opt/miniconda3/lib/libmamba.2.0.0.dylib
+  Reason: tried: '/opt/miniconda3/lib/libarchive.20.dylib' (no such file), '/opt/miniconda3/lib/python3.12/site-packages/libmambapy/../../../libarchive.20.dylib' (no such file), '/opt/miniconda3/lib/python3.12/site-packages/libmambapy/../../../libarchive.20.dylib' (no such file), '/opt/miniconda3/bin/../lib/libarchive.20.dylib' (no such file), '/opt/miniconda3/bin/../lib/libarchive.20.dylib' (no such file), '/usr/local/lib/libarchive.20.dylib' (no such file), '/usr/lib/libarchive.20.dylib' (no such file, not in dyld cache))
+→ /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/videos/0.mkv  →  /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/submissions/p2_d1_slower_c27_scale40/archive/0.mkv
+  adding: 0.mkv (deflated 52%)
+Compressed to /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/submissions/p2_d1_slower_c27_scale40/archive.zip
+Archive:  ./submissions/p2_d1_slower_c27_scale40/archive.zip
+  inflating: ./submissions/p2_d1_slower_c27_scale40/archive/0.mkv  
+Decoding + resizing 0.mkv ... saved 1200 frames
+All videos inflated to ./submissions/p2_d1_slower_c27_scale40/inflated
+=== Evaluation config ===
+  batch_size: 16
+  device: mps
+  num_threads: 2
+  prefetch_queue_depth: 4
+  report: submissions/p2_d1_slower_c27_scale40/report.txt
+  seed: 1234
+  submission_dir: submissions/p2_d1_slower_c27_scale40
+  uncompressed_dir: /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/videos
+  video_names_file: /Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/public_test_video_names.txt
+AVVideoDataset on rank 0 with 1 files.
+TensorVideoDataset on rank 0 with 1 files.
+0it [00:00, ?it/s]/Users/yangzhiwei/Documents/GitHub/Comma-Challenge/comma_video_compression_challenge/frame_utils.py:232: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:219.)
+  frames = torch.from_numpy(mm)  # (N, H, W, C), shares mmap memory
+1it [00:02,  2.35s/it]2it [00:04,  2.02s/it]3it [00:05,  1.90s/it]4it [00:07,  1.84s/it]5it [00:09,  1.81s/it]6it [00:11,  1.79s/it]7it [00:12,  1.78s/it]8it [00:14,  1.78s/it]9it [00:16,  1.79s/it]10it [00:18,  1.78s/it]11it [00:20,  1.78s/it]12it [00:21,  1.77s/it]13it [00:23,  1.78s/it]14it [00:25,  1.78s/it]15it [00:27,  1.80s/it]16it [00:29,  1.81s/it]17it [00:30,  1.82s/it]18it [00:32,  1.80s/it]19it [00:34,  1.80s/it]20it [00:36,  1.79s/it]21it [00:38,  1.80s/it]22it [00:39,  1.79s/it]23it [00:41,  1.80s/it]24it [00:43,  1.80s/it]25it [00:45,  1.80s/it]26it [00:46,  1.78s/it]27it [00:48,  1.77s/it]28it [00:50,  1.77s/it]29it [00:52,  1.77s/it]30it [00:53,  1.77s/it]31it [00:55,  1.77s/it]32it [00:57,  1.76s/it]33it [00:59,  1.88s/it]34it [01:01,  1.87s/it]35it [01:03,  1.84s/it]36it [01:05,  1.83s/it]37it [01:06,  1.82s/it]38it [01:08,  1.68s/it]38it [01:08,  1.80s/it]
+=== Evaluation results over 600 samples ===
+  Average PoseNet Distortion: 0.14631632
+  Average SegNet Distortion: 0.00687774
+  Submission file size: 2,621,523 bytes
+  Original uncompressed size: 37,545,489 bytes
+  Compression Rate: 0.06982258
+  Final score: 100*segnet_dist + √(10*posenet_dist) + 25*rate = 3.64
+Evaluation complete. Report saved to ./submissions/p2_d1_slower_c27_scale40/report.txt

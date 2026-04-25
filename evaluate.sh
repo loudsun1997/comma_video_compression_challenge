@@ -3,24 +3,60 @@ set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Prefer project venv so inflate.sh / evaluate.py see installed deps (av, torch, …).
+if [[ -x "${HERE}/.venv/bin/python" ]]; then
+  export PATH="${HERE}/.venv/bin:${PATH}"
+fi
+
 SUBMISSION_DIR="${HERE}/submissions/baseline"
 VIDEO_NAMES_FILE="${HERE}/public_test_video_names.txt"
 DEVICE="cpu"
+QUICK=false
+VIDEO_NAMES_EXPLICIT=false
+DEVICE_EXPLICIT=false
+
+IS_DARWIN=false
+[[ "$(uname -s)" == "Darwin" ]] && IS_DARWIN=true
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --submission-dir|--submission_dir)
       SUBMISSION_DIR="${2%/}"; shift 2 ;;
     --video-names-file|--video_names_file)
-      VIDEO_NAMES_FILE="$2"; shift 2 ;;
+      VIDEO_NAMES_FILE="$2"
+      VIDEO_NAMES_EXPLICIT=true
+      shift 2 ;;
     --device)
-      DEVICE="$2"; shift 2 ;;
+      DEVICE="$2"
+      DEVICE_EXPLICIT=true
+      shift 2 ;;
+    --quick)
+      QUICK=true
+      shift ;;
     *)
       echo "Unknown arg: $1" >&2
-      echo "Usage: $0 [--submission-dir <dir>] [--video-names-file <file>] [--device <cpu|cuda|mps>]" >&2
+      echo "Usage: $0 [--submission-dir <dir>] [--video-names-file <file>] [--device <cpu|cuda|mps>] [--quick]" >&2
+      echo "  --quick  use ${HERE}/tiny_test.txt for video list (same as fast compress loop; override with --video-names-file)" >&2
       exit 2 ;;
   esac
 done
+
+if [[ "$QUICK" == true ]]; then
+  if [[ "$VIDEO_NAMES_EXPLICIT" == true ]]; then
+    echo "WARN: --quick ignored because --video-names-file was set" >&2
+  else
+    VIDEO_NAMES_FILE="${HERE}/tiny_test.txt"
+    if [[ ! -f "$VIDEO_NAMES_FILE" ]]; then
+      echo "ERROR: --quick requires ${VIDEO_NAMES_FILE} (create it or pass --video-names-file)" >&2
+      exit 1
+    fi
+  fi
+fi
+
+# macOS (Apple Silicon): default to Metal/MPS when --device not passed (use --device cpu to force CPU).
+if [[ "$IS_DARWIN" == true ]] && [[ "$DEVICE_EXPLICIT" == false ]]; then
+  DEVICE="mps"
+fi
 
 ARCHIVE_ZIP="${SUBMISSION_DIR}/archive.zip"
 ARCHIVE_DIR="${SUBMISSION_DIR}/archive"

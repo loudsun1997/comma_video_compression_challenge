@@ -235,3 +235,10 @@ learned_upscaler/micro_upscaler.pt
 learned_upscaler/checkpoints/
 learned_upscaler/temp_lr_train.mkv
 
+# Local test/training video clips (large; fetch via README / tempCommand.sh; not in remote)
+videos/*.mkv
+videos/*.hevc
+
+# macOS
+.DS_Store
+

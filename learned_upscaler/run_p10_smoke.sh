@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Train TS-SPCN (default: Step 5 VGG perceptual + L1) on videos/0.mkv, copy weights into
-# p10_neural_infra, build archive.zip for tiny_test.txt, run evaluate.sh --quick.
+# p10_neural_infra, build archive.zip for public_test_video_names.txt, run evaluate.sh.
 #
 # Requires: videos/0.mkv, project Python deps. Uses `uv run python` if uv is installed,
 # else `python3` (e.g. Google Colab after `pip install` deps; see run_p10_smoke_colab.ipynb).
@@ -42,7 +42,7 @@ export PYTHONUNBUFFERED=1
 
 cp learned_upscaler/micro_upscaler.pt submissions/p10_neural_infra/
 
-bash submissions/p10_neural_infra/compress.sh --video-names-file tiny_test.txt
+bash submissions/p10_neural_infra/compress.sh --video-names-file public_test_video_names.txt
 
 EVAL_EXTRA=()
 if command -v nvidia-smi >/dev/null 2>&1; then
@@ -50,6 +50,6 @@ if command -v nvidia-smi >/dev/null 2>&1; then
 elif [[ "$(uname -s)" == Darwin ]]; then
   EVAL_EXTRA=(--device mps)
 fi
-bash evaluate.sh --quick --submission-dir ./submissions/p10_neural_infra "${EVAL_EXTRA[@]}"
+bash evaluate.sh --submission-dir ./submissions/p10_neural_infra "${EVAL_EXTRA[@]}"
 
 echo "==> Done. Report: submissions/p10_neural_infra/report.txt"
